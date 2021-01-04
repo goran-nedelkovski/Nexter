@@ -34,10 +34,10 @@ body {
 .container {
     display: grid;
     grid-template-rows: 80vh min-content 40vw repeat(3,min-content);         // min-content or auto => row's heigth = content's height (it's same, that means that the row is addapted to the content when increase/decrease the viewport)
-    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];    // 1140px/8 = 142.5px per column = 14,25rem; minmax(min-content=>min value, 14rem=>max value) for responsivnes; 1fr and 1fr around the 8 columns to fill the remaining space and to center that 8 col content at the middle; naming the column hrid lines;  
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];    // 1140px/8 = 142.5px per column = 14,25rem; minmax(min-content=>min value, 14rem=>max value) for responsivnes; 1fr and 1fr around the 8 columns to fill the remaining space and to center that 8 col content at the middle; naming the column grid lines;  
 
-    & > * {
-        padding: 40px;
-        font-size: 3rem;
-    }
+    // & > * {
+    //     padding: 40px;
+    //     font-size: 3rem;
+    // }
 }
