@@ -4,7 +4,29 @@
     margin: 15rem 0;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));   //for responsivnes=> with auto-fit we create automatically as many tracks(columns) as they fit base on there width, and their width we'll define with minmax(min value,max-value) for responsivness
     // grid-template-rows: auto auto;           // it's not nessesery, because all 6 items will be automatically placed in a implicit grid, t.e. in implicit rows(not explicit) 
     grid-gap: 6rem;
+    align-items: start;
+}
+.feature {         // reusable component and it's not depent of the features class...here I will define feature__icon and text, and heading in the typography.scss 
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    // grid-template-rows: min-content auto;   //it's not nessesery, because automtically row's height = content's height
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2;         // /-1 only work for explicit grid (where we have defined rows, and for implicit rows doesn't work); spanning the icon along the 2 column and the text will automatically shiftg into the right grid-cell 
+        transform: translateY(-1rem);
+
+    }
+    &__text {
+        font-size: 1.7rem;
+        // grid-column: 2 / 3;           // it can with this code also
+    }
 }
