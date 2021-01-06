@@ -5,7 +5,7 @@
 
     display: grid;
     // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));   //for responsivnes=> with auto-fit we create automatically as many tracks(columns) as they fit base on there width, and their width we'll define with minmax(min value,max-value) for responsivness
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));   //for responsivnes=> with auto-fit we create automatically as many tracks(columns) as they fit/fill base on there width, and their width we'll define with minmax(min value,max-value) for responsivness
     // grid-template-rows: auto auto;           // it's not nessesery, because all 6 items will be automatically placed in a implicit grid, t.e. in implicit rows(not explicit) 
     grid-gap: 6rem;
     align-items: start;

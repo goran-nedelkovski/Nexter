@@ -7,5 +7,21 @@
     &__content {
         background-color: $color-grey-light-1;
         grid-column:  col-start 5 / full-end;
+        padding: 6rem 8vw;              // for responsivnes, 8% of vw=>padding has changed as the vieport's width has changed  
+
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
+
+        display: grid;
+        align-content: center;        // align all grid-tracks(grid items) in vertical direction
+        justify-items: start;         // align items along the row axix
+    }
+    &__text {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 4rem;
+
     }
 }
