@@ -3,6 +3,26 @@
     &__pictures {
         background-color: $color-primary;
         grid-column: full-start / col-end 4;
+        background-image: linear-gradient(rgba($color-primary, .5),rgba($color-primary, .5)), url(../img/back.jpg);   // Overlay the bg-image with linear-gradient()
+
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        align-items: center;       // center the grid-items (images) in the middle along the y-axis (vertically)
+    }
+    &__img--1 {
+        width: 100%;    //always specify width of the img in %(relative unit) to be flexible(responsive)
+        // height: 100%;  // images by default has aspect ratio(pre defined dimensions and they attend to keep them), and if we want to center the img, we can use align-items: center
+        grid-row: 2/6;
+        grid-column: 2/6;
+    }
+    &__img--2 {     
+        width: 115%;       // to overlapping the image out of the grid-container
+        height: 100%;
+        grid-row: 4/6;
+        grid-column: 4/7;
+        //position: relative;
+        z-index: 20;
     }
     &__content {
         background-color: $color-grey-light-1;
