@@ -4,6 +4,9 @@
 }
 .heading-h1 {
     @extend %heading;
+    font-size: 4.5rem;
+    color: #fff;
+    line-height: 1;         //when we have 2 lines of this text, then we don't want that space between the lines
 }
 .heading-h2 {
     @extend %heading;

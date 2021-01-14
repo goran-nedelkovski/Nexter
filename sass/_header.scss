@@ -1,4 +1,33 @@
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6;
+    background-image: linear-gradient(rgba($color-secondary, .93),rgba($color-secondary, .93)), url(../img/hero.jpeg); //to make the backgr0img darker (or Overlay) we use the old trick with linear-gradient(color, color); the second img url(../img/)->must go one level up t.e. out of the compiled css folder (to the initial project) and from there we go to the img folder
+    background-size: cover;       // or 100% (cover) to fill all header container
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+
+    display: grid;
+    grid-template-rows: 1fr min-content 6rem 1fr;        // the entire row is 80vh and also the header will have 80vh
+    grid-template-columns: max-content;                  // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content.
+    grid-row-gap: 1.5rem;
+    justify-content: center;
+    &__logo {
+        height: 3rem;
+        justify-self: center;
+    }
+    &__btn {
+        align-self: start;
+        justify-self: start;
+    }
+    &__seenon-text {
+
+    }
+    &__seenon-logos {
+
+        img {
+            height: 2.5rem;
+
+        }
+    }
 }
