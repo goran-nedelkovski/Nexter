@@ -7,9 +7,9 @@
     padding: 8rem;
     padding-top: 4rem;
 
-    display: grid;
+    display: grid;  
     grid-template-rows: 1fr min-content 6rem 1fr;        // the entire row is 80vh and also the header will have 80vh
-    grid-template-columns: max-content;                  // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content.
+    grid-template-columns: max-content;                  // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content(max content width).
     grid-row-gap: 1.5rem;
     justify-content: center;
     &__logo {
@@ -20,14 +20,31 @@
         align-self: start;
         justify-self: start;
     }
-    &__seenon-text {
+    &__seenon-text {                 
+        display: grid;              // as default, css align the elements in a new row, but here we want 3 columns
+        grid-template-columns: 1fr max-content 1fr;   //1fr for the :: before and ::after elements/lines(thet'll ocupied all the remaining space) and the text(max-content) is in the middle  
+        grid-column-gap: 1.5rem;      // 1fr is for dinamic spacing in vertical direction when increase/decrease the vh (that rows with 1fr are grow and shrink t.e. the rows's size changed)
+        align-items: center;       //vertically align(center) the elements
 
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+    
+        &::before,           // ::before, ::after and the text will be the 3 grid elements
+        &::after {
+            content: "";    // must set content:"", because without this it will not work 
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
     }
     &__seenon-logos {
-
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);  // 4 equal columns
+        grid-column-gap: 3rem;          // the margin(gutter) between the columns
+        justify-items: center;         //to center the items in there grid-cells horizontaly along the main x axis
         img {
             height: 2.5rem;
-
+            filter: brightness(70%);     // brightness(100%) is the default(light), and to darker the images=> filter:brighthes(70%)
         }
     }
 }
