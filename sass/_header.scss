@@ -8,8 +8,8 @@
     padding-top: 4rem;
 
     display: grid;  
-    grid-template-rows: 1fr min-content 6rem 1fr;        // the entire row is 80vh and also the header will have 80vh
-    grid-template-columns: max-content;                  // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content(max content width).
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;//with minmax(min value is 6rem when is on one row line, and the max value is the min-content when the text will go on new lines) in the 3rd row, the h1 will be fully responsive(won't overlapping/overflowing)   // the entire row is 80vh and also the header will have 80vh
+    grid-template-columns: minmax(min-content, max-content);  //to be fully responsive, we must set with minmax()  a range between min and max-content // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content(max content width).
     grid-row-gap: 1.5rem;
     justify-content: center;
     &__logo {
@@ -42,8 +42,10 @@
         grid-template-columns: repeat(4, 1fr);  // 4 equal columns
         grid-column-gap: 3rem;          // the margin(gutter) between the columns
         justify-items: center;         //to center the items in there grid-cells horizontaly along the main x axis
+        align-items: center;
         img {
-            height: 2.5rem;
+            max-height: 2.5rem;   // instead of fix height, we can set to min-height(max-height), so the height can be less then 2.5rem
+            max-width: 100%;      // to can scale properly (img) for responsivnes, we must specify also the max-width: 100%; so the width can be less then 100%(but,they won't scale because the grid-template-columns:max-content(it attend to be as wide as possible to fill/fit the max-text regardless of the vw)), and we need to change that in the grid-template-columns:.....;
             filter: brightness(70%);     // brightness(100%) is the default(light), and to darker the images=> filter:brighthes(70%)
         }
     }

@@ -14,6 +14,9 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;  //1200px
+$bp-large: 62.5em;       //1000px/16px = 62.5em
 *,
 *::before,
 *::after {
@@ -23,7 +26,11 @@ $font-display: 'Josefin Sans', sans-serif;
 }
 html {
     box-sizing: border-box;
-    font-size: 62.5%;        // 1rem = 10px, 10px/16px = 0.625
+    font-size: 62.5%;        // 1rem = 10px, 10px/16px = 0.625 or 62.5% 
+
+    @media only screen and (max-width:$bp-largest) {    //1200px/16px = 75em=$bp-largest(@media-queries should be in Em unit)
+        font-size: 50%;         // 1 rem = 8px, 8px/16px = 0.50px or 50% (in %-ralative unit to can scale-for responsivnes, to can increase/decrease the font)
+    }
 }
 body {
     font-family: $font-primary;
@@ -40,4 +47,8 @@ body {
     //     padding: 40px;
     //     font-size: 3rem;
     // }
+    @media only screen and (max-width:$bp-large) {
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3,min-content);    //add a new row(6rem) for a sidebar
+        grid-template-columns: [full-start] minmax(6rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];  //remove the 1st column(of sidebar);and always should naming the grid-lines like this when we have a huge layout and we want to change something laterf with @media queries
+    }
 }
