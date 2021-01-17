@@ -3,14 +3,32 @@
     
     margin: 15rem 0;
 
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr);
+    // display: grid;
+    // // grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));   //for responsivnes=> with auto-fit we create automatically as many tracks(columns) as they fit/fill base on there width, and their width we'll define with minmax(min value,max-value) for responsivness
+    // // grid-template-rows: auto auto;           // it's not nessesery, because all 6 items will be automatically placed in a implicit grid, t.e. in implicit rows(not explicit) 
+    // grid-gap: 6rem;
+    // align-items: start;
+
+    @supports (display: grid) {      //with @supports rule, we can check if display:grid is support/exist for this browser, and if do then execute this code in {}
+        display: grid;
+     // grid-template-columns: repeat(3, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));   //for responsivnes=> with auto-fit we create automatically as many tracks(columns) as they fit/fill base on there width, and their width we'll define with minmax(min value,max-value) for responsivness
     // grid-template-rows: auto auto;           // it's not nessesery, because all 6 items will be automatically placed in a implicit grid, t.e. in implicit rows(not explicit) 
     grid-gap: 6rem;
     align-items: start;
+    }
 }
 .feature {         // reusable component and it's not depent of the features class...here I will define feature__icon and text, and heading in the typography.scss 
+
+    float: left;        //old way with float:left (with Progressive nchancment)
+    width: 33.3333%;  // with width:33.3% we get exactly 3 columns(2*3)
+    margin-bottom: 6rem;
+    @supports (display: grid) {  // here we must again write this feature query @supports to reset the properties width and margin-bottom and to get the final result
+        // float: left; //we dont't have to reset this because the css-grid has igrore that because the feature el is a grid item.!!!Also, grid and flexbox have ignore the display:inline-block,display:table-cell,vertical-align: and floats; 
+        width: auto;  //we can reset the with:auto 
+        margin-bottom: 0;//reset the margin-bottom: 0;
+    }
 
     display: grid;
     grid-template-columns: min-content 1fr;
