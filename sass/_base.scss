@@ -17,6 +17,8 @@ $font-display: 'Josefin Sans', sans-serif;
 //RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;  //1200px
 $bp-large: 62.5em;       //1000px/16px = 62.5em
+$bp-medium: 50em;             //800px/16px = 50em
+$bp-small: 37.5em;                 //600px/16px = 37.5em
 *,
 *::before,
 *::after {
@@ -50,5 +52,9 @@ body {
     @media only screen and (max-width:$bp-large) {
         grid-template-rows: 6rem 80vh min-content 40vw repeat(3,min-content);    //add a new row(6rem) for a sidebar
         grid-template-columns: [full-start] minmax(6rem,1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];  //remove the 1st column(of sidebar);and always should naming the grid-lines like this when we have a huge layout and we want to change something laterf with @media queries
+    }
+    @media only screen and (max-width:$bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content repeat(3,min-content);    //add a new row(6rem) for a sidebar, and replace the row 40vw with min-content;we don't create a new row for the pictures/content part but it's no problem, because these rows will be implicit(in implicit grid);we can delete the last 6 rows with min-content because the css-grid algoritm will automatically take care of those rows base on their content.
+
     }
 }

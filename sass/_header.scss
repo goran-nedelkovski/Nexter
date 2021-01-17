@@ -12,6 +12,14 @@
     grid-template-columns: minmax(min-content, max-content);  //to be fully responsive, we must set with minmax()  a range between min and max-content // to avoid that big space on the right side, we reduce the column size(width) to be according to the max-content(max content width).
     grid-row-gap: 1.5rem;
     justify-content: center;
+    @media only screen and (max-width:$bp-medium) {
+        grid-row: 2/3;
+        grid-column: full-start / full-end;
+    }
+    @media only screen and (max-width:$bp-small) {
+        padding: 5rem;  
+    }
+
     &__logo {
         height: 3rem;
         justify-self: center;

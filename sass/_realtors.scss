@@ -7,12 +7,23 @@
     justify-content: center; //center the content horizontally
     grid-row-gap: 2rem;    //to set space-margin between the h3 and the images (also we could with the helper classes of the typographu.scss-mb...)
     justify-items: center;  // to center the items horizontally in their grid-cells
+    @media only screen and (max-width:$bp-medium) {
+        grid-row: 3 / 4;
+        grid-column: full-start / full-end;
+    }
     &__list {
         display: grid;     // here the grid is only this list(not the entire section realtours like the header, because we won't h4 to be a part of the grid)
         grid-template-columns: min-content max-content;    //fot the images->min-content and for the text->max-content(without any line-breaks)
         grid-column-gap: 2rem;
         grid-row-gap: 5vh;  // 5% of vh -> to change the height(size) of row-margin when we changed the vh.
         align-items: center;
+        @media only screen and (max-width:$bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content);    //we want these two pre-columns to * 3 times here, to get side by side(horizontaly)(to get 3 t.e. 6 columns in one row)
+        }
+        @media only screen and (max-width:$bp-small) {
+            padding: 5rem;  
+            grid-template-columns: min-content max-content;    //at this breakpoint we can put again these elements one after the other(vertically, one below each other)
+        }
     }
     &__img {
         width: 7rem;       // instead 100% because images were too big
